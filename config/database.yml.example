@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  reconnect: false
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: ecoturismo_development
+
+test:
+  <<: *default
+  database: ecoturismo_test
+  min_messages: WARNING

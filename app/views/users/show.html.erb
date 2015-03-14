@@ -1,4 +1,7 @@
-<ul>
-  <li><%= @user.username %></li>
-  <li><%= @user.email %></li>
+<ul class="list-group">
+  <li class="list-group-item"><%= @user.id %></li>
+  <li class="list-group-item"><%= @user.username %></li>
+  <li class="list-group-item"><%= @user.email %></li>
+  <li class="list-group-item"><%= @user.data.name %></li>
+  <li class="list-group-item"><%= @user.data.cpf %></li>
 </ul>

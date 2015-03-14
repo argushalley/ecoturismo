@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150314172321) do
     t.datetime "updated_at"
   end
 
+  add_index "user_data", ["cpf"], name: "index_user_data_on_cpf", unique: true, using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -36,9 +38,11 @@ ActiveRecord::Schema.define(version: 20150314172321) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

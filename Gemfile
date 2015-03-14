@@ -36,6 +36,7 @@ group :doc do
 end
 
 gem 'cpf_cnpj'
+gem 'devise'
 
 group :test do
   gem 'capybara'

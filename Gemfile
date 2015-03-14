@@ -35,8 +35,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'bootstrap-sass'
 gem 'cpf_cnpj'
 gem 'devise'
+gem 'simple_form'
 
 group :test do
   gem 'capybara'

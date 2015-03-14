@@ -1,9 +1,46 @@
-<div>
-  <%= simple_form_for @user do |f| %>
-    <%= f.input :username %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-    <%= f.button :submit %>
+<div class="row">
+<%= simple_form_for @user, html: { class: 'form-horizontal' } do |f| %>
+  <%= f.simple_fields_for :data do |df| %>
+    <div class="form-group">
+      <%= df.label :name, 'Nome', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= df.input :name, class: 'form-control', label: false %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= df.label :cpf, 'CPF', class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= df.input :cpf, class: 'form-control', label: false %>
+      </div>
+    </div>
   <% end %>
+
+  <div class="form-group">
+    <%= f.label :username, 'Username', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.input :username, class: 'form-control', label: false %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, 'Email', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.input :email, class: 'form-control', label: false %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, 'Senha', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.input :password, class: 'form-control', label: false %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, 'Confirme sua senha', class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.input :password_confirmation, class: 'form-control', label: false %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, class: 'btn btn-flat inverse' %>
+  </div>
+<% end %>
 </div>

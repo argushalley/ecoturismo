@@ -36,6 +36,7 @@ group :doc do
 end
 
 gem 'bootstrap-sass'
+gem 'cancan'
 gem 'cpf_cnpj'
 gem 'devise'
 gem 'simple_form'

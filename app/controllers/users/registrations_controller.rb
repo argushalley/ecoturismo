@@ -11,6 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with self.resource
   end
 
+  #def edit
+  #end
 
   protected
 

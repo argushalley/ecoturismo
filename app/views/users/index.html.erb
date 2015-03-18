@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <th>#</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Nome</th>
+    <th>CPF</th>
+  </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.data.name %></td>
+      <td><%= user.data.cpf %></td>
+    </tr>
+  <% end %>
+</table>

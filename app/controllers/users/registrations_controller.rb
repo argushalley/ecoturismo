@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_permitted_parameters
-  before_filter :authenticate_user!
+  before_filter :configure_permitted_parameters, :authenticate_user!
+  #skip_before_filter :require_no_authentication
 
   # GET /users/sign_up
   def new
@@ -10,9 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.build_data
     respond_with self.resource
   end
-
-  #def edit
-  #end
 
   protected
 

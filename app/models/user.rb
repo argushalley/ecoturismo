@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :data, class_name: 'UserData'
+  has_one :data, class_name: 'UserData', dependent: :destroy
 
   accepts_nested_attributes_for :data
 

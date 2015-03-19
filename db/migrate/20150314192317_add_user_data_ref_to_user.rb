@@ -1,5 +1,5 @@
 class AddUserDataRefToUser < ActiveRecord::Migration
   def change
-    add_reference :users, :data, index: true
+    add_reference :user_data, :user, index: true
   end
 end

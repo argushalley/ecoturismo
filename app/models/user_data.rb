@@ -1,7 +1,7 @@
 class UserData < ActiveRecord::Base
   before_validation :remove_cpf_formatting
 
-  has_one :users, foreign_key: :data_id
+  has_one :users, foreign_key: :data_id, dependent: :destroy
 
   only_numbers_regexp = %r(\A\d+\z)
 

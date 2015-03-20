@@ -8,8 +8,8 @@
 </head>
 <body>
   <div class="container master-container">
-    <%#= render 'menu/header' %>
     <%= render_navigation expand_all: true, renderer: :bootstrap %>
+
     <% if notice %>
       <div class="alert alert-success fade in" data-alert="alert">
         <a class="close" data-dismiss='alert' href="#">×</a>

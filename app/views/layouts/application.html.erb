@@ -8,10 +8,8 @@
 </head>
 <body>
   <div class="container master-container">
-    <ul class="hmenu">
-      <%= render 'users/menu/registration_items' %>
-      <%= render 'users/menu/login_items' %>
-    </ul>
+    <%#= render_navigation expand_all: true, renderer: :bootstrap %>
+    <%= render 'shared/header' %>
 
     <% if notice %>
       <div class="alert alert-success fade in" data-alert="alert">

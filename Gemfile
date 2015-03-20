@@ -40,6 +40,8 @@ gem 'cancan'
 gem 'cpf_cnpj'
 gem 'devise'
 gem 'simple_form'
+gem 'simple-navigation'
+gem 'simple-navigation-bootstrap'
 
 group :test do
   gem 'capybara'

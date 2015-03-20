@@ -8,7 +8,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Use Bootstrap renderer provided by the
   # simple-navigation-bootstrap gem
-  navigation.renderer = SimpleNavigation::Renderer::Bootstrap
+  #navigation.renderer = SimpleNavigation::Renderer::Bootstrap
 
   # Specify the class that will be applied to active navigation items.
   # Defaults to 'selected' navigation.selected_class = 'your_selected_class'
@@ -58,35 +58,19 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
 
-    # Bootstrap classes for tabbed menu
-    #primary.dom_class = "nav nav-tabs"
-    primary.dom_class = 'nav'
-
-    # User menu
-    primary.item :user, 'Usuarios', '#', split: true do |sub_nav|
-      sub_nav.item :index, 'Listar', admin_users_path
-      #sub_nav.item :key_1_2, 'Logout', logout_path
+    # Account menu
+    primary.item :account, 'Conta' do |sub|
+      sub.item :login, 'Login', new_user_session_path
+      sub.item :logout, 'Logout', destroy_user_session_path
     end
 
-    #primary.item :key_1, 'name', url, options
+    # User menu
+    primary.item :users, 'Usuarios' do |sub|
+      sub.item :index, 'Listar', admin_users_path
+      sub.item :create, 'Cadastrar', new_admin_user_path, :if => lambda { can? :create, User }
+    end
 
-    # Add an item which has a sub navigation (same params, but with block)
-    #primary.item :key_2, 'name', url, options do |sub_nav|
-      # Add an item to the sub navigation (same params again)
-    #  sub_nav.item :key_2_1, 'name', url, options
-    #end
-
-    # You can also specify a condition-proc that needs to be fullfilled to display an item.
-    # Conditions are part of the options. They are evaluated in the context of the views,
-    # thus you can use all the methods and vars you have available in the views.
-    #primary.item :key_3, 'Admin', url, class: 'special', if: -> { current_user.admin? }
-    #primary.item :key_4, 'Account', url, unless: -> { logged_in? }
-
-    # you can also specify html attributes to attach to this particular level
-    # works for all levels of the menu
-    # primary.dom_attributes = {id: 'menu-id', class: 'menu-class'}
-
-    # You can turn off auto highlighting for a specific level
-    # primary.auto_highlight = false
+    primary.dom_id = 'menu-root'
+    primary.dom_class = 'nav navbar-nav'
   end
 end

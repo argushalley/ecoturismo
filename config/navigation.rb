@@ -6,6 +6,10 @@ SimpleNavigation::Configuration.run do |navigation|
   # The renderer can also be specified as option in the render_navigation call.
   # navigation.renderer = Your::Custom::Renderer
 
+  # Use Bootstrap renderer provided by the
+  # simple-navigation-bootstrap gem
+  navigation.renderer = SimpleNavigation::Renderer::Bootstrap
+
   # Specify the class that will be applied to active navigation items.
   # Defaults to 'selected' navigation.selected_class = 'your_selected_class'
 
@@ -15,7 +19,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Item keys are normally added to list items as id.
   # This setting turns that off
-  # navigation.autogenerate_item_ids = false
+  navigation.autogenerate_item_ids = false
 
   # You can override the default logic that is used to autogenerate the item ids.
   # To do this, define a Proc which takes the key of the current item as argument.
@@ -53,6 +57,17 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
+
+    # Bootstrap classes for tabbed menu
+    #primary.dom_class = "nav nav-tabs"
+    primary.dom_class = 'nav'
+
+    # User menu
+    primary.item :user, 'Usuarios', '#', split: true do |sub_nav|
+      sub_nav.item :index, 'Listar', admin_users_path
+      #sub_nav.item :key_1_2, 'Logout', logout_path
+    end
+
     #primary.item :key_1, 'name', url, options
 
     # Add an item which has a sub navigation (same params, but with block)
@@ -73,11 +88,5 @@ SimpleNavigation::Configuration.run do |navigation|
 
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false
-    primary.item :users, 'Usuarios' do |users|
-      users.item :index, 'Listar usuarios', admin_users_path
-    end
-
-    primary.dom_id = 'menu-root'
-    primary.dom_class = 'nav navbar-nav pull-right'
   end
 end

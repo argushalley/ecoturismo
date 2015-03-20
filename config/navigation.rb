@@ -59,15 +59,15 @@ SimpleNavigation::Configuration.run do |navigation|
     #
 
     # Account menu
-    primary.item :account, 'Conta' do |sub|
-      sub.item :login, 'Login', new_user_session_path
-      sub.item :logout, 'Logout', destroy_user_session_path
+    primary.item :account, 'Conta', icon: 'glyphicon glyphicon-user' do |sub|
+      sub.item :login, 'Login', new_user_session_path, icon: 'glyphicon glyphicon-log-in', :unless => lambda { user_signed_in? }
+      sub.item :logout, 'Logout', destroy_user_session_path, icon: 'glyphicon glyphicon-log-out', :if => lambda { user_signed_in? }
     end
 
     # User menu
-    primary.item :users, 'Usuarios' do |sub|
-      sub.item :index, 'Listar', admin_users_path
-      sub.item :create, 'Cadastrar', new_admin_user_path, :if => lambda { can? :create, User }
+    primary.item :users, 'Usuarios', icon: 'fa fa-users' do |sub|
+      sub.item :index, 'Listar', admin_users_path, icon: 'glyphicon glyphicon-th-list'
+      sub.item :create, 'Cadastrar', new_admin_user_path, icon: 'fa fa-user-plus', :if => lambda { can? :create, User }
     end
 
     primary.dom_id = 'menu-root'

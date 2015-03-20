@@ -10,6 +10,8 @@ class UserData < ActiveRecord::Base
                        format: only_numbers_regexp
   validates :cpf, cpf: true
 
+  enum gender: [:male, :female]
+
   def remove_cpf_formatting
     self.cpf.gsub!(/\D/, '') unless self.cpf.nil?
   end

@@ -2,9 +2,12 @@
 
   <thead>
     <th>#</th>
+    <th>Admin</th>
     <th>Username</th>
     <th>Email</th>
     <th>Nome</th>
+    <th>Sexo</th>
+    <th>RG</th>
     <th>CPF</th>
     <th></th>
     <th></th>
@@ -13,9 +16,12 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
+      <td> - </td> <%# admin? %>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
       <td><%= user.data.name %></td>
+      <td> - </td> <%# male? female? %>
+      <td><%= user.data.rg %></td>
       <td><%= user.data.cpf %></td>
       <td><%= link_to 'Exibir', admin_user_path(user) %></td>
       <td><%= link_to 'Editar', edit_admin_user_path(user) if can? :update, User %></td>

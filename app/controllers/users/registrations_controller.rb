@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up) { |user_params|
       user_params.permit(
         :username, :email, :password, :password_confirmation,
-        data_attributes: [:id, :name, :cpf]
+        data_attributes: [:id, :name, :gender, :rg, :cpf]
       )
     }
   end

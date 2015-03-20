@@ -5,6 +5,7 @@ class UserData < ActiveRecord::Base
 
   only_numbers_regexp = %r(\A\d+\z)
 
+  validates :rg, allow_blank: true, uniqueness: true
   validates :cpf, presence: true,
                        uniqueness: true,
                        format: only_numbers_regexp

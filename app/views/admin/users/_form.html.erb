@@ -5,6 +5,8 @@
     <div class="form-inputs">
       <%= f.simple_fields_for :data do |df| %>
         <%= df.input :name, required: true %>
+        <%= df.select(:gender, UserData.genders.keys.map {|gender| [gender.titleize,gender]}) %>
+        <%= df.input :rg, required: false %>
         <%= df.input :cpf, required: true %>
       <% end %>
       <%= f.input :username, required: true, autofocus: true %>

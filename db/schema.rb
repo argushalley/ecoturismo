@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320210425) do
+ActiveRecord::Schema.define(version: 20150320222931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150320210425) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "gender",     default: 0
+    t.string   "rg"
   end
 
   add_index "user_data", ["cpf"], name: "index_user_data_on_cpf", unique: true, using: :btree

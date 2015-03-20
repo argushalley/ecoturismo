@@ -1,0 +1,41 @@
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to('Lorem Ipsum', root_path, class: "navbar-brand")%>
+  </div>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <%= render_navigation expand_all: true, renderer: :bootstrap %>
+    <ul class="nav navbar-nav pull-right">
+      <li class="active access-campaign">
+        <%= link_to("", "/", target: "blank", data: {toggle: "dropdown"}, class: " icon-bullhorn dropdown-toggle")%>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to(t('.wallet'), '', class: "icon-external-link", target: "_blank")%>
+          </li>
+        </ul>
+      </li>
+      <!-- if message -->
+      <li class="hidden-xs hidden-sm">
+        <a href="#" class="alert dropdown-toggle" data-toggle="dropdown">
+          <i class="icon-warning-sign"></i>
+          <span class="count"><strong>2</strong> <%= t('.message') %></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href=""><label class="label label-success">chamado</label> &nbsp; Titulo do chamado</a>
+          </li>
+          <li>
+            <a href=""><label class="label label-info">post</label> &nbsp; Começo da mensagem de um post</a>
+          </li>
+        </ul>
+      </li>
+      <!-- if message -->
+    </ul>
+  </div>
+</header>

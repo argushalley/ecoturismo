@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :data
 
   enum role: [:default, :admin]
+
+  monetize :balance_cents
 end

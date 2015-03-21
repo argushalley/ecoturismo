@@ -9,6 +9,7 @@
     <th>Sexo</th>
     <th>RG</th>
     <th>CPF</th>
+    <th>Saldo</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,13 +17,14 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
-      <td> - </td> <%# admin? %>
+      <td><%= user.role %></td>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
-      <td><%= user.data.name %></td>
-      <td> - </td> <%# male? female? %>
+      <td><%= user.data_name %></td>
+      <td><%= user.data_gender %></td>
       <td><%= user.data.rg %></td>
-      <td><%= user.data.cpf %></td>
+      <td><%= user.formatted_cpf %></td>
+      <td><%= user.humanized_balance %></td>
       <td><%= link_to 'Exibir', admin_user_path(user) %></td>
       <td><%= link_to 'Editar', edit_admin_user_path(user) if can? :update, User %></td>
       <td><%= link_to 'Deletar', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, User %></td>

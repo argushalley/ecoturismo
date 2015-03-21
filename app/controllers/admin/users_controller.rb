@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   def index
     authorize! :read, User
 
-    @users = User.all
+    @users = User.all.decorate
 
     respond_to do |format|
       format.html

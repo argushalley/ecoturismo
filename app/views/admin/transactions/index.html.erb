@@ -1,0 +1,31 @@
+<table class="table table-striped">
+
+  <thead>
+    <th>#</th>
+    <th>Descrição</th>
+    <th>Tipo</th>
+    <th>Valor</th>
+    <th>Usuário</th>
+    <th>Compensada?</th>
+    <th>Compensada em</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= transaction.description %></td>
+        <td><%= transaction.type %></td>
+        <td><%= transaction.humanized_value %></td>
+        <td><%= transaction.user_name %></td>
+        <td><%= transaction.compensated? %></td>
+        <td><%= transaction.compensated_at %></td>
+        <td><%= link_to 'Exibir', admin_transaction_path(transaction) %></td>
+        <td><%= link_to 'Editar', edit_admin_transaction_path(transaction) if can? :update, Transaction %></td>
+        <td><%= link_to 'Deletar', admin_transaction_path(transaction), method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Transaction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

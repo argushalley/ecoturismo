@@ -24,6 +24,7 @@ class Admin::TransactionsController < ApplicationController
   end
 
   def create
+    binding.pry
     authorize! :create, Transaction
     @user = User.find(transaction_params[:user_id])
     @transaction = @user.transactions.build(transaction_params)
@@ -64,11 +65,4 @@ class Admin::TransactionsController < ApplicationController
       :description, :type, :compensated, :value, :user_id
     )
   end
-
-  #def user_params
-  #  params.require(:user).permit(
-  #    :username, :email, :password, :password_confirmation, :role,
-  #    data_attributes: [:id, :name, :gender, :rg, :cpf]
-  #  )
-  #end
 end

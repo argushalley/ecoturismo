@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    attributes:
+      user_data:
+        genders:
+          male: Masculino
+          female: Feminino

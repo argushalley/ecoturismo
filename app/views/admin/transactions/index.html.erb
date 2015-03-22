@@ -17,11 +17,11 @@
       <tr>
         <td><%= transaction.id %></td>
         <td><%= transaction.description %></td>
-        <td><%= transaction.type %></td>
+        <td><%= transaction.localized_type %></td>
         <td><%= transaction.humanized_value %></td>
         <td><%= transaction.user_name %></td>
-        <td><%= transaction.compensated? %></td>
-        <td><%= transaction.compensated_at %></td>
+        <td><%= transaction.compensated_text %></td>
+        <td><%= transaction.short_compensated_at %></td>
         <td><%= link_to 'Exibir', admin_transaction_path(transaction) %></td>
         <td><%= link_to 'Editar', edit_admin_transaction_path(transaction) if can? :update, Transaction %></td>
         <td><%= link_to 'Deletar', admin_transaction_path(transaction), method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Transaction %></td>

@@ -1,0 +1,42 @@
+<div class="row">
+  <%= simple_form_for [:admin, @transaction], html: { class: 'form-horizontal' } do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="form-group">
+        <%= f.label :description, 'Descrição', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :description, required: false, label: false %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :compensated, 'Compensada?', class: 'col-sm-2 control-label' %>
+        <%= f.check_box :compensated, class: 'checkbox' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :type, 'Tipo *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-2">
+          <%= select_tag :type, options_for_select(Transaction.types.keys.map {|type| [type.titleize,type]}), class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :user, 'Usuário *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-3">
+          <%= select_tag :user, options_from_collection_for_select(User.all, :id, :data_name), class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :value, 'Valor *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :value, required: true, label: false %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="form-group text-center">
+        <%= f.button :submit, button_label, class: 'btn btn-flat inverse' %>
+      </div>
+    </div>
+  <% end %>
+</div>

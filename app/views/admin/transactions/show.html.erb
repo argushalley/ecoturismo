@@ -1,0 +1,9 @@
+<ul class="list-group">
+  <li class="list-group-item"><%= @transaction.id %></li>
+  <li class="list-group-item"><%= @transaction.description %></li>
+  <li class="list-group-item"><%= @transaction.type %></li>
+  <li class="list-group-item"><%= @transaction.value_cents %></li>
+  <li class="list-group-item"><%= @transaction.compensated %></li>
+  <li class="list-group-item"><%= @transaction.compensated_at %></li>
+  <li class="list-group-item"><%= @transaction.user.data_name %></li>
+</ul>

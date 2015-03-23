@@ -24,7 +24,6 @@ class Admin::TransactionsController < ApplicationController
   end
 
   def create
-    binding.pry
     authorize! :create, Transaction
     @user = User.find(transaction_params[:user_id])
     @transaction = @user.transactions.build(transaction_params)

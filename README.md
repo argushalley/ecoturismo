@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/argushalley/ecoturismo.svg?branch=master)](https://travis-ci.org/argushalley/ecoturismo)
+[![Code Climate](https://codeclimate.com/github/argushalley/ecoturismo/badges/gpa.svg)](https://codeclimate.com/github/argushalley/ecoturismo)
 
-== README
+README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

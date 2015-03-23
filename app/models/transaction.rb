@@ -39,7 +39,6 @@ class Transaction < ActiveRecord::Base
   end
 
   def set_compensated
-    #self.compensated_at = Time.current if compensated?
     self.compensated_at = compensated? ? Time.current : nil if compensated_changed?
   end
 end

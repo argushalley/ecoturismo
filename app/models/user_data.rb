@@ -7,8 +7,8 @@ class UserData < ActiveRecord::Base
 
   validates :rg, allow_blank: true, uniqueness: true
   validates :cpf, presence: true,
-                       uniqueness: true,
-                       format: only_numbers_regexp
+                  uniqueness: true,
+                  format: only_numbers_regexp
   validates :cpf, cpf: true
 
   enum gender: [:male, :female]

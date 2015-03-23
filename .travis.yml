@@ -8,3 +8,7 @@ before_script:
   - cp config/database.yml.example config/database.yml
   - bundle exec rake db:create db:migrate db:test:prepare
 script: bundle exec rspec spec
+addons:
+  code_climate:
+    repo_token:
+      secure: DEfOw/LcfAL5WgxpugjVJ7mBYIzaRfYZAjZ57aeZwfxiX688TEMgycfRXytqrV6110h45UhW3DfF4Uk+QQP7WcJeP8G1N0XIOcTO2X76qEt7oQH4Zugt3/kTaS78B317eoljErH5LHrcIKV4rEGvyPA3XKDDAa+kImqbU3rvDYw=

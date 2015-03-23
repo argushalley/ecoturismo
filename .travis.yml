@@ -1,0 +1,10 @@
+sudo: false
+language: ruby
+cache: bundler
+bundler_args: --without development production
+rvm:
+  - 2.1.5
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - bundle exec rake db:create db:migrate db:test:prepare
+script: bundle exec rspec spec

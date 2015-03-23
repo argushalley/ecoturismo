@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/argushalley/ecoturismo.svg?branch=master)](https://travis-ci.org/argushalley/ecoturismo)
 [![Code Climate](https://codeclimate.com/github/argushalley/ecoturismo/badges/gpa.svg)](https://codeclimate.com/github/argushalley/ecoturismo)
+[![Test Coverage](https://codeclimate.com/github/argushalley/ecoturismo/badges/coverage.svg)](https://codeclimate.com/github/argushalley/ecoturismo)
+[![Build Status](https://travis-ci.org/argushalley/ecoturismo.svg?branch=master)](https://travis-ci.org/argushalley/ecoturismo)
 
 README
 

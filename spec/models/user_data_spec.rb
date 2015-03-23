@@ -19,4 +19,15 @@ describe UserData, type: :model do
       validate_uniqueness_of(:rg)
     end
   end
+
+  describe 'hooks' do
+    describe 'before_validation' do
+      let(:cpf) { CPF.new(CPF.generate(true)) }
+      let(:user_data) { create(:user_data, cpf: cpf.formatted) }
+
+      it 'removes cpf formatting' do
+        expect(user_data.cpf).to eq(cpf.stripped)
+      end
+    end
+  end
 end

@@ -64,11 +64,4 @@ class Admin::TransactionsController < ApplicationController
       :description, :type, :compensated, :value, :user_id
     )
   end
-
-  #def user_params
-  #  params.require(:user).permit(
-  #    :username, :email, :password, :password_confirmation, :role,
-  #    data_attributes: [:id, :name, :gender, :rg, :cpf]
-  #  )
-  #end
 end

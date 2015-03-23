@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    attributes:
+      user:
+        roles:
+          default: Usuário
+          admin: Administrador
+        admin: Administrador?
+        admin_text:
+          'false': Não
+          'true': Sim

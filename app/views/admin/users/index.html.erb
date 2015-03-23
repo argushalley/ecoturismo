@@ -18,11 +18,11 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.role %></td>
+        <td><%= user.admin_text %></td>
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.data_name %></td>
-        <td><%= user.data_gender %></td>
+        <td><%= user.gender %></td>
         <td><%= user.data.rg %></td>
         <td><%= user.formatted_cpf %></td>
         <td><%= user.humanized_balance %></td>

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    attributes:
+      transaction:
+        compensated: Compensada?
+        compensated_text:
+          'false': Não
+          'true': Sim
+        types:
+          credit: Crédito
+          debit: Débito

@@ -11,7 +11,7 @@
           </div>
           <%= df.label :gender, 'Sexo', class: 'col-sm-1 control-label' %>
           <div class="col-sm-2">
-            <%= select_tag :gender, options_for_select(UserData.genders.keys.map {|gender| [gender.titleize,gender]}), class: 'form-control' %>
+            <%= select_tag :gender, options_for_select(UserData.genders.keys.map {|gender| [t("activerecord.attributes.user_data.genders.#{gender}"),gender]}), class: 'form-control' %>
           </div>
         </div>
         <div class="form-group">
@@ -55,7 +55,7 @@
       <div class="form-group">
         <%= f.label :role, 'Permissão', class: 'col-sm-2 control-label' %>
         <div class="col-sm-2">
-          <%= select_tag :role, options_for_select(User.roles.keys.map {|role| [role.titleize,role]}), class: 'form-control' %>
+          <%= select_tag :role, options_for_select(User.roles.keys.map {|role| [t("activerecord.attributes.user.roles.#{role}"),role]}), class: 'form-control' %>
         </div>
       </div>
     </div>

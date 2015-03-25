@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321150308) do
+ActiveRecord::Schema.define(version: 20150324012604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,19 @@ ActiveRecord::Schema.define(version: 20150321150308) do
     t.integer  "value_cents",    default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "trip_id"
   end
 
+  add_index "transactions", ["trip_id"], name: "index_transactions_on_trip_id", using: :btree
   add_index "transactions", ["type"], name: "index_transactions_on_type", using: :btree
   add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
+
+  create_table "trips", force: true do |t|
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "value_cents", default: 0, null: false
+  end
 
   create_table "user_data", force: true do |t|
     t.string   "name"

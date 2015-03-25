@@ -79,6 +79,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
     # Trips menu
     primary.item :trips, 'Viagens', icon: 'fa fa-bus' do |sub|
+      sub.item :index, 'Listar', admin_trips_path, icon: 'glyphicon glyphicon-th-list'
+      sub.item :create, 'Cadastrar', new_admin_trip_path, icon: 'fa fa-road', :if => lambda { can? :create, Trip }
     end
 
     primary.dom_id = 'menu-root'

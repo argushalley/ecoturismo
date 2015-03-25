@@ -1,5 +1,5 @@
 class Trip < ActiveRecord::Base
-  has_many :transactions, before_add: :build_transaction
+  has_many :transactions, before_add: :build_transaction, dependent: :destroy
   has_many :users, through: :transactions
 
   monetize :value_cents

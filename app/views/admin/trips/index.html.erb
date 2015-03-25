@@ -14,12 +14,11 @@
       <tr>
         <td><%= trip.id %></td>
         <td><%= trip.description %></td>
-        <td><%= trip.users.count %>
-        </td>
-        <td><%= trip.value_cents %></td>
+        <td><%= trip.users.count %></td>
+        <td><%= trip.humanized_value %></td>
         <td><%= link_to 'Exibir', admin_trip_path(trip) %></td>
         <td><%= link_to 'Editar', edit_admin_trip_path(trip) if can? :update, Trip %></td>
-        <td>Deletar<%#= link_to 'Deletar', admin_trip_path(trip), method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Trip %></td>
+        <td><%= link_to 'Deletar', admin_trip_path(trip), method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Trip %></td>
       </tr>
     <% end %>
   </tbody>

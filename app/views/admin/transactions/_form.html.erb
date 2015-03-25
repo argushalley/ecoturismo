@@ -31,7 +31,12 @@
           <%= f.input :value, required: true, label: false %>
         </div>
       </div>
-    </div>
+      <div class="form-group">
+        <%= f.label :trip, 'Viagem', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-6">
+            <%= f.association :trip, label: false, collection: Trip.all.map {|trip| trip.description} %>
+          </div>
+      </div>
 
     <div class="form-actions">
       <div class="form-group text-center">

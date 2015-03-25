@@ -66,21 +66,21 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     # User menu
-    primary.item :users, 'Usuarios', icon: 'fa fa-users' do |sub|
+    primary.item :users, 'Usuarios', icon: 'fa fa-users', :if => lambda { user_signed_in? } do |sub|
       sub.item :index, 'Listar', admin_users_path, icon: 'glyphicon glyphicon-th-list'
       sub.item :create, 'Cadastrar', new_admin_user_path, icon: 'fa fa-user-plus', :if => lambda { can? :create, User }
     end
 
     # Transactions menu
-    primary.item :transactions, 'Transações', icon: 'fa fa-cc-visa' do |sub|
+    primary.item :transactions, 'Transações', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
       sub.item :index, 'Listar', admin_transactions_path, icon: 'glyphicon glyphicon-th-list'
-      sub.item :creare, 'Cadastrar', new_admin_transaction_path, icon: 'fa fa-credit-card', :if => lambda { can? :create, Transaction }
+      sub.item :creare, 'Cadastrar', new_admin_transaction_path, icon: 'fa fa-credit-card'
     end
 
     # Trips menu
-    primary.item :trips, 'Viagens', icon: 'fa fa-bus' do |sub|
+    primary.item :trips, 'Viagens', icon: 'fa fa-bus', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
       sub.item :index, 'Listar', admin_trips_path, icon: 'glyphicon glyphicon-th-list'
-      sub.item :create, 'Cadastrar', new_admin_trip_path, icon: 'fa fa-road', :if => lambda { can? :create, Trip }
+      sub.item :create, 'Cadastrar', new_admin_trip_path, icon: 'fa fa-road'
     end
 
     primary.dom_id = 'menu-root'

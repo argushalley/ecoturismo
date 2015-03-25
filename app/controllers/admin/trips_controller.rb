@@ -6,7 +6,7 @@ class Admin::TripsController < ApplicationController
   def index
     authorize! :read, Trip
 
-    @trips = Trip.all#.decorate
+    @trips = Trip.all.decorate
 
     respond_to do |format|
       format.html
@@ -49,13 +49,13 @@ class Admin::TripsController < ApplicationController
     respond_with @trip, location: [:admin, @trip]
   end
 
-  #def destroy
-  #  authorize! :destroy, Trip
+  def destroy
+    authorize! :destroy, Trip
 
-  #  @trip = Trip.find(params[:id])
-  #  @trip.destroy
-  #  redirect_to admin_trips_path
-  #end
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    redirect_to admin_trips_path
+  end
 
   private
 

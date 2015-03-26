@@ -1,27 +1,78 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="text-center">Editar <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <%= f.simple_fields_for :data do |df| %>
+      <div class="form-group">
+        <%= df.label :name, 'Nome *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= df.input :name, required: true, autofocus: true, label: false %>
+        </div>
+        <%= df.label :gender, 'Sexo', class: 'col-sm-1 control-label' %>
+        <div class="col-sm-2">
+          <%= df.input :gender, as: :select, label: false, collection: UserData.genders.keys.map {|gender| [t("activerecord.attributes.user_data.genders.#{gender}"),gender]}, include_blank: false %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= df.label :rg, 'RG', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= df.input :rg, required: false, label: false %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= df.label :cpf, 'CPF *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= df.input :cpf, required: true, label: false %>
+        </div>
+      </div>
     <% end %>
+    <div class="form-group">
+        <%= f.label :username, 'Username *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :username, required: true, label: false %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, 'Email *', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :email, required: true, label: false %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Esperando confirmação de: <%= resource.unconfirmed_email %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, 'Senha', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :password, required: false, label: false, hint: "Deixe em branco se não deseja alterar" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirme sua senha', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :password_confirmation, required: false, label: false %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :current_password, 'Senha atual', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.input :current_password, required: true, label: false, hint: "É preciso informar a senha atual para confirmar as alterações" %>
+        </div>
+      </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <div class="form-group text-center">
+      <%= f.button :submit, 'Atualizar', class: 'btn btn-flat inverse' %>
+    </div>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Cancelar minha conta</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Voltar", :back %>

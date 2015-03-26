@@ -5,6 +5,7 @@ RSpec.describe Transaction, type: :model do
   it { is_expected.to define_enum_for(:type).with([:credit, :debit]) }
   it { is_expected.to validate_presence_of(:user) }
   it { is_expected.to validate_presence_of(:type) }
+  it { is_expected.to validate_presence_of(:description) }
   it { is_expected.to monetize(:value_cents) }
 
   describe '.compensated' do

@@ -14,7 +14,18 @@
       <tr>
         <td><%= trip.id %></td>
         <td><%= trip.description %></td>
-        <td><%= trip.users.count %></td>
+        <td>
+          <table>
+            <tbody>
+              <% trip.users.each do |user| %>
+                <tr>
+                  <td><%= user.data_name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%#= trip.users.count %>
+        </td>
         <td><%= trip.humanized_value %></td>
         <td><%= link_to 'Exibir', admin_trip_path(trip) %></td>
         <td><%= link_to 'Editar', edit_admin_trip_path(trip) if can? :update, Trip %></td>

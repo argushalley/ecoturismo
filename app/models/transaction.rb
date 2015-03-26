@@ -4,7 +4,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :user, foreign_key: :user_id
   belongs_to :trip, foreign_key: :trip_id
 
-  validates_presence_of :value, :user, :type
+  validates_presence_of :value, :user, :type, :description
   validates_numericality_of :value, greater_than: 0
 
   before_save :set_compensated

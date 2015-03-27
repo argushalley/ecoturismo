@@ -1,5 +1,4 @@
 <table class="table table-striped">
-
   <thead>
     <th>#</th>
     <th>Descrição</th>
@@ -24,7 +23,6 @@
               <% end %>
             </tbody>
           </table>
-          <%#= trip.users.count %>
         </td>
         <td><%= trip.humanized_value %></td>
         <td><%= link_to 'Exibir', admin_trip_path(trip) %></td>
@@ -34,3 +32,10 @@
     <% end %>
   </tbody>
 </table>
+<% if @trips.present? %>
+  <div>
+    <hr>
+    <%= link_to "Exportar resultados", admin_trips_path(format: :pdf),
+    class: 'btn btn-flat inverse' %>
+  </div>
+<% end %>

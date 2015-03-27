@@ -109,7 +109,12 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    pdf-core (0.5.1)
     pg (0.18.1)
+    prawn (2.0.1)
+      pdf-core (~> 0.5.1)
+      ttfunk (~> 1.4.0)
+    prawn-table (0.2.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -208,6 +213,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    ttfunk (1.4.0)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -238,6 +244,8 @@ DEPENDENCIES
   jquery-rails
   money-rails (~> 1.2.0)
   pg
+  prawn
+  prawn-table
   pry-byebug
   rails (~> 4.1.8)
   rails-i18n

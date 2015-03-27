@@ -10,6 +10,10 @@ class Admin::TripsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.pdf do
+        pdf = TripsPdf.new(@trips)
+        send_data pdf.render, filename: pdf.filename, type: 'application/pdf'
+      end
     end
   end
 

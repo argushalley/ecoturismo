@@ -32,12 +32,12 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :trip, 'Viagem', class: 'col-sm-2 control-label' %>
-          <div class="col-sm-6">
-            <%= f.association :trip, label: false, collection: Trip.all.map {|trip| trip.description} %>
-          </div>
+        <%= f.label :trip_id, 'Viagem', class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.collection_select :trip_id, Trip.all, :id, :description, {}, { class: 'form-control' } %>
+        </div>
       </div>
-
+    </div>
     <div class="form-actions">
       <div class="form-group text-center">
         <%= f.button :submit, button_label, class: 'btn btn-flat inverse' %>

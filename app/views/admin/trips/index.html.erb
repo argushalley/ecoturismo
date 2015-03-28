@@ -16,9 +16,9 @@
         <td>
           <table>
             <tbody>
-              <% trip.users.each do |user| %>
+              <% trip.users.each do |user_trip| %>
                 <tr>
-                  <td><%= user.data_name %></td>
+                  <td><%= user_trip.user_data_name %></td>
                 </tr>
               <% end %>
             </tbody>

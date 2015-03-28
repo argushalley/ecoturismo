@@ -61,7 +61,7 @@ class Admin::TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(
-      :description, :type, :compensated, :value, :user_id
+      :description, :type, :compensated, :value, :user_id, :trip_id
     )
   end
 end

@@ -83,6 +83,11 @@ SimpleNavigation::Configuration.run do |navigation|
       sub.item :create, 'Cadastrar', new_admin_trip_path, icon: 'fa fa-road'
     end
 
+    # Reports menu
+    primary.item :reports, 'Relatórios', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
+      sub.item :index, 'Viagens', admin_reports_trips_report_path
+    end
+
     primary.dom_id = 'menu-root'
     primary.dom_class = 'nav navbar-nav'
   end

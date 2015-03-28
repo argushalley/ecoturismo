@@ -31,6 +31,9 @@ class Admin::TripsController < ApplicationController
     authorize! :create, Trip
 
     @trip = Trip.new(trip_params)
+    @trip.users.each do |user_trip|
+      @trip.transactions << @trip.transactions.build(description: @trip.description, type: :debit, compensated: true, value: @trip.value, user: user_trip.user)
+    end
 
     if @trip.save
       respond_with @trip, location: [:admin, @trip]

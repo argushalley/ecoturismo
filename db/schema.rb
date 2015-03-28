@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324012604) do
+ActiveRecord::Schema.define(version: 20150328032130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20150324012604) do
 
   add_index "user_data", ["cpf"], name: "index_user_data_on_cpf", unique: true, using: :btree
   add_index "user_data", ["user_id"], name: "index_user_data_on_user_id", using: :btree
+
+  create_table "user_trips", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_trips", ["trip_id"], name: "index_user_trips_on_trip_id", using: :btree
+  add_index "user_trips", ["user_id"], name: "index_user_trips_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

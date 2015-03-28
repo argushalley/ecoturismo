@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= trip.description %></td>
+        <td>
+          <%= link_to "Exibir", admin_reports_path(trip, format: :pdf) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

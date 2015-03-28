@@ -1,0 +1,5 @@
+<h3>Relatório - <%= @trip.description %></h3>
+<div>
+  <hr>
+  <%= link_to "Gerar relatório", admin_reports_path(@trip, format: :pdf), class: 'btn btn-flat' %>
+</div>

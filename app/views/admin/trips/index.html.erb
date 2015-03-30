@@ -32,10 +32,3 @@
     <% end %>
   </tbody>
 </table>
-<% if @trips.present? %>
-  <div>
-    <hr>
-    <%= link_to "Exportar resultados", admin_trips_path(format: :pdf),
-    class: 'btn btn-flat inverse' %>
-  </div>
-<% end %>

@@ -1,16 +1,24 @@
-<table class="table table-striped">
+<table class="table table-condensed table-striped">
   <thead>
-    <th></th>
-    <th></th>
+    <th>Viagem</th>
+    <th>Relatório</th>
   </thead>
   <tbody>
     <% @trips.each do |trip| %>
       <tr>
-        <td><%= trip.description %></td>
+        <td class='col-sm-6'><%= trip.description %></td>
         <td>
-          <%= link_to "Exibir", admin_reports_path(trip, format: :pdf) %>
+            <%= link_to "Gerar relatório", admin_reports_path(trip, format: :pdf), class: 'btn btn-primary' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<% if @trips.present? %>
+  <div>
+    <hr>
+    <%= link_to "Gerar relatório completo", admin_trips_path(format: :pdf),
+    class: 'btn btn-flat btn-primary' %>
+  </div>
+<% end %>

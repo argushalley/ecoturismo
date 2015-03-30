@@ -16,9 +16,16 @@ class TripPdf
 
     pdf.move_down(30)
 
-    pdf.table rows do |table|
+    trip_table = headers.concat rows
+
+    pdf.table trip_table do |table|
+      table.row(0).font_style = :bold
       table.position = :center
     end
+  end
+
+  def headers
+    [['Nome', 'Saldo na viagem']]
   end
 
   def rows

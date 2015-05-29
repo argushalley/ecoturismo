@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
   it { is_expected.to belong_to(:user).with_foreign_key(:user_id) }
+  it { is_expected.to belong_to(:trip).with_foreign_key(:trip_id) }
   it { is_expected.to define_enum_for(:type).with([:credit, :debit]) }
   it { is_expected.to validate_presence_of(:user) }
   it { is_expected.to validate_presence_of(:type) }
